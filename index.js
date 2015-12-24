@@ -41,7 +41,10 @@ module.exports = {
         var inputs = util.pickStringInputs(step, pickInputs),
             uriLink = 'tagged';
 
-        if (!inputs.base_hostname || !inputs.api_key || !inputs.tag)
+        if (!oauth || !inputs.api_key)
+            return this.fail('A [tumblr_consumer_key,tumblr_consumer_secret,tumblr_token,tumblr_token_secret] or [api_key] environment need for this module.');
+
+        if (!inputs.base_hostname || !inputs.tag)
             return this.fail('A [base_hostname, api_key, tag] need for this module.');
 
         //send API request
