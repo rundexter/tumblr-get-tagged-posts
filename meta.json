@@ -4,23 +4,66 @@
 {
     //Required. Inputs the module expects.
     "inputs": [
-        //e.g.
-        /*
         {
-            "id": "from",
-            "title":"From"
+            "id": "base-hostname",
+            "title":"Hostname"
+        },
+        {
+            "id": "api_key",
+            "title":"API Key"
+        },
+        {
+            "id": "tag",
+            "title":"Tag"
+        },
+        {
+            "id": "type",
+            "title":"Type"
+        },
+        {
+            "id": "limit",
+            "title":"Limit"
+        },
+        {
+            "id": "offset",
+            "title":"Offset"
         }
-        */
     ],
     //Required. Outputs the module emits.
     "outputs": [
-      //e.g.
-      /*
         {
-            "id": "from",
-            "title":"From"
+            "id": "blog_name",
+            "title":"Blog Name"
+        },
+        {
+            "id": "id",
+            "title":"Post ID"
+        },
+        {
+            "id": "post_url",
+            "title":"Post URL"
+        },
+        {
+            "id": "type",
+            "title":"Post Type"
+        },
+        {
+            "id": "timestamp",
+            "title":"Timestamp"
+        },
+        {
+            "id": "date",
+            "title":"Date"
+        },
+        {
+            "id": "reblog_key",
+            "title":"Reblog Key"
+        },
+        {
+            "id": "tags",
+            "title":"Tags"
         }
-      */
     ],
+    "icon": "tumblr",
     "title": "Tumblr Get Tagged Posts" /* Required.A display name for the module */
 }

@@ -63,7 +63,9 @@ module.exports = _.merge({
              */
             input: {
                 //Replace VAR1 with the name of an expected input, and add more inputs as needed.
-                VAR1: 'foo'
+                'base-hostname': 'zaretskiialexander.tumblr.com',
+                api_key: 'TURSx7geEM0cRhedIq0VGlwrs1otJA9QjgC3d5hm54TZcIT16o',
+                tag: 'test'
             }
         }
     }
