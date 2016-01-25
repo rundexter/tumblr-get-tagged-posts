@@ -31,28 +31,6 @@ var pickInputs = {
 
 module.exports = {
     /**
-     * Return auth params.
-     *
-     * @param dexter
-     * @returns {*}
-     */
-    authOptions: function (dexter) {
-        var oauth = {
-            consumer_key: dexter.environment('tumblr_consumer_key'),
-            consumer_secret: dexter.environment('tumblr_consumer_secret'),
-            token: dexter.environment('tumblr_token'),
-            token_secret: dexter.environment('tumblr_token_secret')
-        };
-
-        return (
-            oauth.consumer_key &&
-            oauth.consumer_secret &&
-            oauth.token &&
-            oauth.token_secret
-        )? oauth : false;
-    },
-
-    /**
      * The main entry point for the Dexter module
      *
      * @param {AppStep} step Accessor for the configuration for the step using this module.  Use step.input('{key}') to retrieve input data.
@@ -60,7 +38,7 @@ module.exports = {
      */
     run: function(step, dexter) {
         var inputs = util.pickStringInputs(step, pickInputs),
-            oauth = this.authOptions(dexter),
+            oauth = dexter.provider('tumblr').credentials(),
             uriLink = 'tagged';
 
         var dataQuery = {
@@ -71,9 +49,6 @@ module.exports = {
 
         if (oauth)
             dataQuery.oauth = oauth;
-
-        if (!oauth || !inputs.api_key)
-            return this.fail('A [tumblr_consumer_key,tumblr_consumer_secret,tumblr_token,tumblr_token_secret] or [api_key] environment need for this module.');
 
         if (!inputs.base_hostname || !inputs.tag)
             return this.fail('A [base_hostname, api_key, tag] need for this module.');

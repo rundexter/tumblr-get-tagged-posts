@@ -64,6 +64,9 @@
             "title":"Tags"
         }
     ],
+    "providers": [{
+        "name": "tumblr"
+    }],
     "icon": "tumblr",
     "title": "Tumblr Get Tagged Posts" /* Required.A display name for the module */
 }
